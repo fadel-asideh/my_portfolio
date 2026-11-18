@@ -1,0 +1,45 @@
+<!-- SMILE BREAK TEMPLATE (logic lives in smile-break.component.ts) -->
+<section id="smile" class="mx-auto max-w-3xl px-5 py-20">
+  <app-section-heading emoji="😄" [title]="'smile.title' | t" [subtitle]="'smile.subtitle' | t" />
+
+  @if (joke(); as current) {
+    <!-- The joke card: a speech-bubble sticker with a tail -->
+    <div class="relative">
+      <div class="sticker relative rotate-[-1deg] p-8 text-center md:p-12">
+        <!-- a little microphone sticker: it's open-mic night -->
+        <span class="absolute -top-6 -left-4 rotate-[-15deg] text-5xl" aria-hidden="true">🎤</span>
+        <p class="font-display text-2xl font-semibold md:text-3xl">{{ current.setup }}</p>
+
+        <!-- aria-live: screen readers announce the punchline when it appears -->
+        <div class="mt-6 min-h-16" aria-live="polite">
+          @if (revealed()) {
+            <p class="animate-pop-in font-display text-xl text-coral md:text-2xl">{{ current.punchline }}</p>
+          }
+        </div>
+
+        <div class="mt-6 flex flex-wrap justify-center gap-3">
+          @if (!revealed()) {
+            <button type="button" class="btn bg-coral text-white!" (click)="reveal($event)">🥁 {{ 'smile.reveal' | t }}</button>
+          } @else {
+            <button type="button" class="btn bg-mint" (click)="next()">🔁 {{ 'smile.next' | t }}</button>
+          }
+        </div>
+      </div>
+      <!-- bubble tail -->
+      <div
+        class="absolute -bottom-4 left-16 size-8 rotate-45 border-r-2 border-b-2 border-line bg-card"
+        aria-hidden="true"
+      ></div>
+    </div>
+  }
+
+  <!-- Smile counter -->
+  <p class="mt-12 flex items-center justify-center gap-3 text-center font-display text-lg">
+    <span class="text-4xl transition-transform hover:scale-125" aria-hidden="true">{{ moodFace() }}</span>
+    @if (smiles.count() > 0) {
+      {{ 'smile.counter' | t: { count: smiles.count() } }}
+    } @else {
+      {{ 'smile.counterZero' | t }}
+    }
+  </p>
+</section>

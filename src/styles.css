@@ -1,0 +1,221 @@
+/* =============================================================================
+ * GLOBAL STYLES — the design system of the portfolio
+ * -----------------------------------------------------------------------------
+ * Everything visual that is shared by more than one component lives here:
+ *   1. Tailwind import + dark-mode variant
+ *   2. Semantic color tokens (they flip automatically in dark mode)
+ *   3. Theme extensions (fonts, colors, animations) → usable as Tailwind classes
+ *   4. Reusable component utilities (sticker cards, buttons, chips)
+ *   5. Fun stuff: scroll-reveal, party mode, reduced-motion safety net
+ *
+ * Rule of thumb: components use Tailwind classes in their templates. Only
+ * patterns repeated in many places are promoted to a utility in this file.
+ * ============================================================================= */
+
+@import 'tailwindcss';
+
+/* -----------------------------------------------------------------------------
+ * 1. DARK MODE
+ * Tailwind's `dark:` variant is bound to a `.dark` class on <html> (instead of
+ * the OS setting) so the visitor can toggle it. ThemeService sets that class.
+ * -------------------------------------------------------------------------- */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* -----------------------------------------------------------------------------
+ * 2. SEMANTIC TOKENS
+ * Components never hard-code "white" or "black". They use names like
+ * `bg-surface` or `text-ink`. Light and dark values are defined once here.
+ * -------------------------------------------------------------------------- */
+:root {
+  --surface: #fff8ee; /* page background: warm cream */
+  --card: #ffffff; /* card background */
+  --ink: #1d1b2f; /* main text + sticker outline */
+  --muted: #5d5a74; /* secondary text */
+  --line: #1d1b2f; /* borders and hard shadows */
+  color-scheme: light;
+}
+
+.dark {
+  --surface: #15132b; /* deep night blue */
+  --card: #221f3d;
+  --ink: #f6f2ff;
+  --muted: #b4afd0;
+  --line: #f6f2ff;
+  color-scheme: dark;
+}
+
+/* -----------------------------------------------------------------------------
+ * 3. THEME EXTENSIONS → generate Tailwind classes
+ * e.g. `font-display`, `bg-sun`, `text-coral`, `animate-wiggle` …
+ * `inline` makes Tailwind reference the CSS variables above at runtime, which
+ * is what lets the same class work in both light and dark mode.
+ * -------------------------------------------------------------------------- */
+@theme inline {
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+}
+
+@theme {
+  /* Fonts (loaded in index.html) */
+  --font-display: 'Fredoka', ui-rounded, system-ui, sans-serif;
+  --font-sans: 'Nunito', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Happy accent palette — the same in both themes */
+  --color-sun: #ffc93c;
+  --color-coral: #ff6b6b;
+  --color-mint: #3ddc97;
+  --color-sky: #4d96ff;
+  --color-grape: #9b5de5;
+
+  /* Named animations → `animate-wave`, `animate-float`, … */
+  --animate-wave: wave 2.4s ease-in-out infinite;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-wiggle: wiggle 0.5s ease-in-out;
+  --animate-pop-in: pop-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  --animate-blink: blink 4.5s infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(16deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-6deg); }
+    75% { transform: rotate(6deg); }
+  }
+  @keyframes pop-in {
+    from { opacity: 0; transform: scale(0.6) translateY(10px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+  }
+  @keyframes blink {
+    0%, 92%, 100% { transform: scaleY(1); }
+    95% { transform: scaleY(0.1); }
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 4. BASE ELEMENTS
+ * -------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* leaves room for the sticky header when jumping to #sections */
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    @apply bg-surface font-sans text-ink antialiased;
+    transition: background-color 0.4s ease, color 0.4s ease;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-sun text-[#1d1b2f];
+  }
+
+  /* Keyboard users always get a clear, friendly focus ring */
+  :focus-visible {
+    @apply outline-3 outline-offset-2 outline-sky;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+ * 5. REUSABLE UTILITIES (the "sticker" look)
+ * Thick outline + hard offset shadow = playful, hand-made feel.
+ * -------------------------------------------------------------------------- */
+
+/* A card that looks like a sticker on a laptop lid */
+@utility sticker {
+  @apply rounded-3xl border-2 border-line bg-card;
+  box-shadow: 5px 5px 0 0 var(--line);
+}
+
+/* Lift the sticker a bit on hover (used on interactive cards) */
+@utility sticker-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  &:hover {
+    transform: translate(-3px, -3px) rotate(-0.4deg);
+    box-shadow: 8px 8px 0 0 var(--line);
+  }
+}
+
+/* Primary call-to-action button */
+@utility btn {
+  @apply inline-flex cursor-pointer items-center gap-2 rounded-full border-2 border-line px-5 py-2.5 font-display font-semibold text-[#1d1b2f] select-none;
+  box-shadow: 3px 3px 0 0 var(--line);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  &:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 0 var(--line);
+  }
+  &:active {
+    transform: translate(2px, 2px);
+    box-shadow: 0 0 0 0 var(--line);
+  }
+}
+
+/* Small round icon-only button (theme toggle, language, menu …) */
+@utility icon-btn {
+  @apply inline-flex size-10 cursor-pointer items-center justify-center rounded-full border-2 border-line bg-card text-ink;
+  transition: transform 0.2s ease;
+  &:hover { transform: rotate(-8deg) scale(1.06); }
+}
+
+/* Technology chip ("Angular", "C#", …) */
+@utility chip {
+  @apply inline-flex items-center rounded-full border-2 border-line/80 bg-surface px-3 py-1 font-mono text-xs font-medium;
+}
+
+/* -----------------------------------------------------------------------------
+ * 6. SCROLL REVEAL — used by the RevealOnScrollDirective
+ * Elements start slightly lowered + transparent and slide in once visible.
+ * -------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* -----------------------------------------------------------------------------
+ * 7. PARTY MODE 🎉 — the Konami-code easter egg (EasterEggService)
+ * -------------------------------------------------------------------------- */
+html.party main {
+  animation: party-hue 1.2s linear infinite;
+}
+@keyframes party-hue {
+  from { filter: hue-rotate(0deg); }
+  to { filter: hue-rotate(360deg); }
+}
+
+/* -----------------------------------------------------------------------------
+ * 8. ACCESSIBILITY SAFETY NET
+ * Visitors who asked their OS for less motion get a calm page.
+ * -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

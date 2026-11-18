@@ -1,0 +1,47 @@
+<!-- ABOUT SECTION TEMPLATE (logic lives in about.component.ts) -->
+<section id="about" class="mx-auto max-w-6xl px-5 py-20">
+  <app-section-heading emoji="👋" [title]="'about.title' | t" [subtitle]="'about.subtitle' | t" />
+
+  <div class="grid gap-10 lg:grid-cols-2">
+    <!-- Story + languages -->
+    <div appReveal class="space-y-5 text-lg leading-relaxed">
+      @for (paragraph of about().paragraphs; track $index) {
+        <p>{{ paragraph }}</p>
+      }
+
+      <div class="sticker mt-8 p-6">
+        <h3 class="mb-4 text-xl font-semibold">🗣️ {{ 'about.languagesTitle' | t }}</h3>
+        <ul class="space-y-4">
+          @for (language of about().languages; track language.name) {
+            <li>
+              <div class="mb-1 flex justify-between gap-3 text-base">
+                <span class="font-display font-semibold">{{ language.name }}</span>
+                <span class="text-right text-sm text-muted">{{ language.level }}</span>
+              </div>
+              <!-- progress bar: track + colorful fill -->
+              <div class="h-3 overflow-hidden rounded-full border-2 border-line bg-surface">
+                <div
+                  class="h-full rounded-full bg-[linear-gradient(90deg,var(--color-mint),var(--color-sky),var(--color-grape))]"
+                  [style.width.%]="language.percent"
+                ></div>
+              </div>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fun facts -->
+    <div>
+      <h3 class="mb-1 text-2xl font-semibold">🎲 {{ 'about.funFactsTitle' | t }}</h3>
+      <p class="mb-5 text-sm text-muted">{{ 'about.flipHint' | t }}</p>
+      <ul class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+        @for (fact of about().funFacts; track fact.title; let i = $index) {
+          <li appReveal [revealDelay]="i * 80">
+            <app-fun-fact-card [fact]="fact" />
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>

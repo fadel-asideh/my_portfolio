@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "title": "Fadel Asideh · Fullstack-Entwickler"
+  },
+  "nav": {
+    "home": "Start",
+    "about": "Über mich",
+    "skills": "Skills",
+    "experience": "Erfahrung",
+    "projects": "Projekte",
+    "smile": "Lächelpause",
+    "contact": "Kontakt"
+  },
+  "header": {
+    "toggleTheme": "Zwischen hellem und dunklem Modus wechseln",
+    "toggleLanguage": "Switch to English",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen",
+    "themeLight": "Guten Morgen, Sonnenschein! ☀️",
+    "themeDark": "Nachtmodus an. Die Eulen freuen sich 🦉"
+  },
+  "hero": {
+    "greeting": "Hallo, ich bin",
+    "iBuild": "Ich baue",
+    "ctaProjects": "Meine Arbeit",
+    "ctaContact": "Sag Hallo",
+    "statsLabel": "Kurz & knapp"
+  },
+  "mascot": {
+    "name": "Bugsy",
+    "label": "Bugsy, das freundliche Maskottchen. Klick für ein Kompliment!",
+    "hint": "psst… klick mich!",
+    "sleeping": "zzz… beweg die Maus, um mich zu wecken"
+  },
+  "about": {
+    "title": "Über mich",
+    "subtitle": "Der Mensch hinter den APIs.",
+    "funFactsTitle": "Fun Facts",
+    "flipHint": "Tippe auf eine Karte, um sie umzudrehen",
+    "languagesTitle": "Sprachen, die ich spreche (mit Menschen)"
+  },
+  "skills": {
+    "title": "Werkzeugkasten",
+    "subtitle": "Damit verwandle ich Kaffee in funktionierende Software."
+  },
+  "experience": {
+    "title": "Berufserfahrung",
+    "subtitle": "Wo ich bisher Dinge gebaut habe.",
+    "stack": "Tech-Stack"
+  },
+  "projects": {
+    "title": "Projekte",
+    "subtitle": "Ein paar Dinge, auf die ich stolz bin. Such dir eine Sorte aus:",
+    "filters": {
+      "all": "Alle",
+      "dotnet": "C# / .NET",
+      "python": "Python",
+      "typescript": "TypeScript"
+    },
+    "highlights": "Mein Beitrag",
+    "showMore": "Details anzeigen",
+    "showLess": "Details ausblenden",
+    "viewRepo": "Repository ansehen",
+    "privateCode": "Kundenprojekt · Code nicht öffentlich",
+    "empty": "Hier gibt es noch nichts — probier einen anderen Filter 🙂"
+  },
+  "smile": {
+    "title": "Lächelpause",
+    "subtitle": "Auch Entwickler brauchen Pausen. Hier ein Witz, geht aufs Haus.",
+    "reveal": "Pointe zeigen",
+    "next": "Noch einer!",
+    "counter": "Du hast hier schon {{count}} Lächeln gesammelt 😄",
+    "counterZero": "Noch kein Lächeln gesammelt. Das ändern wir!"
+  },
+  "contact": {
+    "title": "Lass uns reden",
+    "subtitle": "Eine Stelle, ein Projekt oder einfach ein guter Witz? Mein Postfach ist offen.",
+    "copyEmail": "E-Mail kopieren",
+    "copied": "E-Mail kopiert! Bis bald 🎉",
+    "copyFailed": "Kopieren hat nicht geklappt — aber die Adresse steht ja da 😅",
+    "sendMail": "Schreib mir",
+    "downloadCv": "Lebenslauf herunterladen"
+  },
+  "footer": {
+    "madeWith": "Gemacht mit ☕, Angular & Tailwind in Fürth",
+    "hint": "psst… ↑ ↑ ↓ ↓ ← → ← → B A",
+    "backToTop": "Nach oben"
+  },
+  "easterEgg": {
+    "found": "Du hast die Party gefunden! 🎉 Erfolg freigeschaltet."
+  },
+  "state": {
+    "loading": "Das Lächeln wärmt sich auf…",
+    "error": "Hoppla, die Daten machen gerade Kaffeepause.",
+    "retry": "Nochmal versuchen"
+  }
+}

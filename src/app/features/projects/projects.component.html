@@ -1,0 +1,33 @@
+<!-- PROJECTS SECTION TEMPLATE (logic lives in projects.component.ts) -->
+<section id="projects" class="mx-auto max-w-6xl px-5 py-20">
+  <app-section-heading emoji="🚀" [title]="'projects.title' | t" [subtitle]="'projects.subtitle' | t" />
+
+  <!-- Filter buttons -->
+  <div class="mb-10 flex flex-wrap justify-center gap-3" role="group" [attr.aria-label]="'projects.title' | t">
+    @for (filter of filters(); track filter) {
+      <button
+        type="button"
+        class="btn py-2! text-sm"
+        [class]="activeFilter() === filter ? 'bg-sun' : 'bg-card text-ink!'"
+        [attr.aria-pressed]="activeFilter() === filter"
+        (click)="activeFilter.set(filter)"
+      >
+        {{ 'projects.filters.' + filter | t }}
+        <span class="rounded-full bg-ink px-2 text-xs text-surface">{{ countFor(filter) }}</span>
+      </button>
+    }
+  </div>
+
+  <!-- Project grid. Tracking by id lets Angular keep cards when the filter changes. -->
+  @if (visibleProjects().length) {
+    <ul class="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+      @for (project of visibleProjects(); track project.id) {
+        <li class="group animate-pop-in">
+          <app-project-card [project]="project" />
+        </li>
+      }
+    </ul>
+  } @else {
+    <p class="text-center text-muted">{{ 'projects.empty' | t }}</p>
+  }
+</section>

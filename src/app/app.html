@@ -1,0 +1,44 @@
+<!--
+  ROOT TEMPLATE
+  The page is assembled here from independent section components.
+  Reordering sections = moving lines. Removing one = deleting a line.
+-->
+@switch (store.state().status) {
+  @case ('loading') {
+    <!-- Loading screen: plain text because translations aren't loaded yet -->
+    <div class="flex min-h-screen flex-col items-center justify-center gap-4" role="status">
+      <span class="animate-bounce text-7xl" aria-hidden="true">😊</span>
+      <p class="font-display text-xl">Loading smiles… / Lächeln lädt…</p>
+    </div>
+  }
+
+  @case ('error') {
+    <div class="flex min-h-screen flex-col items-center justify-center gap-5 p-6 text-center" role="alert">
+      <span class="text-7xl" aria-hidden="true">🙈</span>
+      <p class="font-display text-2xl">Oops — the data took a coffee break. ☕</p>
+      <button type="button" class="btn bg-sun" (click)="store.retry()">🔄 Try again / Nochmal</button>
+    </div>
+  }
+
+  @case ('ready') {
+    @let content = store.content()!;
+    @let config = store.config()!;
+
+    <app-header />
+
+    <main>
+      <app-hero [content]="content" />
+      <app-about [about]="content.about" />
+      <app-skills [groups]="content.skillGroups" />
+      <app-experience [jobs]="content.experience" />
+      <app-projects [projects]="content.projects" />
+      <app-smile-break [jokes]="content.jokes" />
+      <app-contact [config]="config" />
+    </main>
+
+    <app-footer />
+  }
+}
+
+<!-- Toasts live outside the switch so they survive any state change -->
+<app-toast-outlet />

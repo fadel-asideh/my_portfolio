@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "title": "Fadel Asideh · Fullstack Developer"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "smile": "Smile break",
+    "contact": "Contact"
+  },
+  "header": {
+    "toggleTheme": "Switch between light and dark mode",
+    "toggleLanguage": "Auf Deutsch wechseln",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "themeLight": "Good morning, sunshine! ☀️",
+    "themeDark": "Night mode on. Owls approve 🦉"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "iBuild": "I build",
+    "ctaProjects": "See my work",
+    "ctaContact": "Say hello",
+    "statsLabel": "Quick facts"
+  },
+  "mascot": {
+    "name": "Bugsy",
+    "label": "Bugsy, the friendly mascot. Click for a compliment!",
+    "hint": "psst… click me!",
+    "sleeping": "zzz… wiggle the mouse to wake me"
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "The human behind the APIs.",
+    "funFactsTitle": "Fun facts",
+    "flipHint": "Tap a card to flip it",
+    "languagesTitle": "Languages I speak (with humans)"
+  },
+  "skills": {
+    "title": "Toolbox",
+    "subtitle": "The things I use to turn coffee into working software."
+  },
+  "experience": {
+    "title": "Experience",
+    "subtitle": "Where I've been building things.",
+    "stack": "Tech stack"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "A few things I'm proud of. Pick a flavour:",
+    "filters": {
+      "all": "All",
+      "dotnet": "C# / .NET",
+      "python": "Python",
+      "typescript": "TypeScript"
+    },
+    "highlights": "What I did",
+    "showMore": "Show details",
+    "showLess": "Hide details",
+    "viewRepo": "View repository",
+    "privateCode": "Client project · code not public",
+    "empty": "No projects here yet — try another filter 🙂"
+  },
+  "smile": {
+    "title": "Smile break",
+    "subtitle": "Developers need breaks too. Here's a joke, on the house.",
+    "reveal": "Reveal punchline",
+    "next": "Another one!",
+    "counter": "You've collected {{count}} smiles here 😄",
+    "counterZero": "No smiles collected yet. Let's fix that!"
+  },
+  "contact": {
+    "title": "Let's talk",
+    "subtitle": "Got a role, a project or just a good joke? My inbox is open.",
+    "copyEmail": "Copy e-mail",
+    "copied": "E-mail copied! Talk soon 🎉",
+    "copyFailed": "Couldn't copy — but the address is right there 😅",
+    "sendMail": "Write me",
+    "downloadCv": "Download CV"
+  },
+  "footer": {
+    "madeWith": "Made with ☕, Angular & Tailwind in Fürth",
+    "hint": "psst… ↑ ↑ ↓ ↓ ← → ← → B A",
+    "backToTop": "Back to top"
+  },
+  "easterEgg": {
+    "found": "You found the party! 🎉 Achievement unlocked."
+  },
+  "state": {
+    "loading": "Warming up the smiles…",
+    "error": "Oops, the data took a coffee break.",
+    "retry": "Try again"
+  }
+}

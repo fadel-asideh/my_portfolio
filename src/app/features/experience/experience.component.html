@@ -1,0 +1,49 @@
+<!-- EXPERIENCE SECTION TEMPLATE (logic lives in experience.component.ts) -->
+<section id="experience" class="mx-auto max-w-4xl px-5 py-20">
+  <app-section-heading emoji="💼" [title]="'experience.title' | t" [subtitle]="'experience.subtitle' | t" />
+
+  <!-- the timeline: a dashed line on the left, cards on the right -->
+  <ol class="relative ml-5 border-l-4 border-dashed border-line/25 md:ml-8">
+    @for (job of jobs(); track job.id; let i = $index) {
+      <li appReveal [revealDelay]="i * 120" class="relative mb-12 pl-10 last:mb-0 md:pl-14">
+        <!-- emoji pin sitting on the line -->
+        <span
+          class="absolute top-2 -left-[26px] flex size-12 items-center justify-center rounded-full border-2 border-line bg-sun text-2xl"
+          aria-hidden="true"
+          >{{ job.emoji }}</span
+        >
+
+        <article class="sticker sticker-hover p-6">
+          <header class="flex flex-wrap items-start justify-between gap-2">
+            <div>
+              <h3 class="text-2xl font-semibold">{{ job.company }}</h3>
+              <p class="font-display text-lg text-coral">{{ job.role }}</p>
+            </div>
+            <span class="chip bg-mint/30! font-semibold">{{ job.period }}</span>
+          </header>
+
+          <p class="mt-1 text-sm text-muted">📍 {{ job.location }} · {{ job.workMode }}</p>
+          <p class="mt-4 italic">{{ job.summary }}</p>
+
+          <ul class="mt-4 space-y-2">
+            @for (highlight of job.highlights; track $index) {
+              <li class="flex gap-2">
+                <span class="mt-0.5 shrink-0" aria-hidden="true">⚡</span>
+                <span>{{ highlight }}</span>
+              </li>
+            }
+          </ul>
+
+          <div class="mt-5">
+            <p class="mb-2 text-xs font-bold tracking-wider text-muted uppercase">{{ 'experience.stack' | t }}</p>
+            <ul class="flex flex-wrap gap-2">
+              @for (tech of job.stack; track tech) {
+                <li class="chip">{{ tech }}</li>
+              }
+            </ul>
+          </div>
+        </article>
+      </li>
+    }
+  </ol>
+</section>

@@ -1,0 +1,64 @@
+/*
+ * Bugsy's personal animations.
+ * Kept here (not in styles.css) because nobody else needs them.
+ * SVG parts need `transform-box: fill-box` so they scale/rotate around
+ * their OWN center instead of the SVG's top-left corner.
+ */
+
+/* Gentle floating up and down */
+.bugsy-body {
+  animation: bugsy-float 4s ease-in-out infinite;
+}
+.bugsy-shadow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bugsy-shadow 4s ease-in-out infinite;
+}
+
+/* Natural blinking every few seconds */
+.bugsy-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bugsy-blink 5s infinite;
+}
+
+/* The antenna bulb glows softly */
+.bugsy-bulb {
+  animation: bugsy-glow 2s ease-in-out infinite;
+}
+
+/* Floating Zzz */
+.bugsy-zzz {
+  animation: bugsy-zzz 2.5s ease-in-out infinite;
+}
+
+/* A happy jump when clicked */
+.is-excited svg {
+  animation: bugsy-jump 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bugsy-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes bugsy-shadow {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.8); }
+}
+@keyframes bugsy-blink {
+  0%, 94%, 100% { transform: scaleY(1); }
+  97% { transform: scaleY(0.08); }
+}
+@keyframes bugsy-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+@keyframes bugsy-zzz {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(-6px); opacity: 0.6; }
+}
+@keyframes bugsy-jump {
+  0% { transform: scale(1) translateY(0); }
+  40% { transform: scale(1.08, 0.92) translateY(-22px) rotate(-4deg); }
+  100% { transform: scale(1) translateY(0); }
+}

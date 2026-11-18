@@ -1,0 +1,17 @@
+# Node
+/node_modules
+npm-debug.log*
+yarn-error.log*
+*.log
+
+# Miscellaneous
+/.angular
+
+# Secrets & local settings (never commit these)
+.env
+.env.*
+*.local
+
+# Private documents: keep your full CV (address, phone, birth date) out of a public repo
+*.docx
+/private

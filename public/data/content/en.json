@@ -1,0 +1,277 @@
+{
+  "profile": {
+    "firstName": "Fadel",
+    "lastName": "Asideh",
+    "headline": "Fullstack developer · Backend focus",
+    "rotatingWords": ["REST APIs", "clean architecture", "microservices", "solid databases", "tested code", "happy users"],
+    "location": "Fürth, Bavaria, Germany",
+    "availability": "Open to new opportunities",
+    "intro": "Almost 5 years of building backends, APIs and web apps with C#/.NET, Python/FastAPI and TypeScript/NestJS. I like code that is clean, tested and easy to read — and teams that laugh at least once a day."
+  },
+  "stats": [
+    { "value": "~5", "label": "years of professional experience", "emoji": "🗓️" },
+    { "value": "50+", "label": "REST APIs built with FastAPI", "emoji": "🔌" },
+    { "value": "1500+", "label": "automated tests written", "emoji": "✅" },
+    { "value": "3", "label": "backend stacks: .NET, Python, TypeScript", "emoji": "🧩" }
+  ],
+  "about": {
+    "paragraphs": [
+      "I'm a fullstack developer with a soft spot for the backend: APIs, data models, migrations and the architecture that keeps them tidy. I've worked on a low-code business platform in Germany and on data, booking and startup platforms for a team in Dubai.",
+      "I studied Information Technology Engineering (software engineering) at Damascus University and have lived in Germany since late 2024. I care about Clean Architecture, SOLID and good tests — and I use AI tools like Cursor and Claude every day, always reviewing what they produce.",
+      "Outside of code you'll find me at the table-tennis table, solving logic puzzles or cooking something for friends."
+    ],
+    "funFacts": [
+      { "emoji": "🏓", "title": "Table tennis", "detail": "Club member at SpVgg. My forehand is faster than my CI pipeline." },
+      { "emoji": "🧩", "title": "Puzzle brain", "detail": "Maths, logic puzzles and algorithm challenges are my idea of relaxing." },
+      { "emoji": "🍳", "title": "Home chef", "detail": "Cooking is just debugging with better smells." },
+      { "emoji": "📚", "title": "Volunteer tutor", "detail": "2015–2020 with the Norwegian Refugee Council: maths tutoring and exam prep for 20+ students a year." },
+      { "emoji": "🧳", "title": "Damascus → Fürth", "detail": "New country, new language, same love for clean code." },
+      { "emoji": "🤖", "title": "AI-assisted", "detail": "I pair with AI tools daily — and I still read every line before it ships." }
+    ],
+    "languages": [
+      { "name": "Arabic", "level": "Native", "percent": 100 },
+      { "name": "English", "level": "Fluent", "percent": 85 },
+      { "name": "German", "level": "B1 certificate · B2 course in progress", "percent": 55 }
+    ]
+  },
+  "skillGroups": [
+    {
+      "id": "backend",
+      "emoji": "⚙️",
+      "title": "Backend",
+      "accent": "sun",
+      "skills": ["C#", "ASP.NET Core", ".NET", "EF Core", "LINQ", "Python", "FastAPI", "SQLAlchemy", "Alembic", "TypeScript", "Node.js", "NestJS", "Next.js", "Prisma"]
+    },
+    {
+      "id": "frontend",
+      "emoji": "🎨",
+      "title": "Frontend",
+      "accent": "coral",
+      "skills": ["TypeScript", "JavaScript", "React", "Next.js", "Blazor", "HTML", "CSS"]
+    },
+    {
+      "id": "data",
+      "emoji": "🗄️",
+      "title": "Databases",
+      "accent": "mint",
+      "skills": ["PostgreSQL", "SQL Server", "MySQL", "SQLite", "Redis", "Data modelling", "Migrations", "Query optimisation", "Triggers"]
+    },
+    {
+      "id": "architecture",
+      "emoji": "🏛️",
+      "title": "Architecture",
+      "accent": "sky",
+      "skills": ["Clean Architecture", "SOLID", "Microservices", "REST APIs", "Design patterns", "Plug-in architecture", "Dependency injection"]
+    },
+    {
+      "id": "devops",
+      "emoji": "🚀",
+      "title": "DevOps & tools",
+      "accent": "grape",
+      "skills": ["Docker", "Docker Compose", "Git", "GitHub Actions", "Azure DevOps", "CI/CD", "AWS (S3, SES, DynamoDB, Lambda)", "Linux"]
+    },
+    {
+      "id": "security",
+      "emoji": "🛡️",
+      "title": "Security & quality",
+      "accent": "coral",
+      "skills": ["JWT", "RBAC", "OAuth2 / SSO", "Azure AD", "Auth0", "SuperTokens", "OWASP Top 10", "pytest", "xUnit", "Code reviews"]
+    },
+    {
+      "id": "ai",
+      "emoji": "🤖",
+      "title": "AI",
+      "accent": "mint",
+      "skills": ["LLM API integration", "Agents", "Skills", "Cursor", "Claude", "Copilot"]
+    }
+  ],
+  "experience": [
+    {
+      "id": "puresolution",
+      "role": "Software Developer (C# / .NET / Blazor)",
+      "company": "PureSolution GmbH",
+      "location": "Zirndorf, Germany",
+      "workMode": "Hybrid",
+      "period": "12/2024 – 07/2026",
+      "emoji": "🏢",
+      "summary": "UDM — a web-based low-code platform that lets companies and public bodies configure their own business apps and replace Excel lists.",
+      "highlights": [
+        "Sped up the platform's filter search by replacing an old array-based system with a tree structure (LINQ, OOP), secured with xUnit tests.",
+        "Built a dynamic plug-in architecture with .NET Reflection: customer features load as external DLLs through fixed interfaces.",
+        "Wrote a modular C#/.NET shift-planning library for multi-site scheduling with 15+ rules (working hours, holidays, absences), based on OOP and SOLID.",
+        "Containerised UDM (4 .NET apps) with Docker and Docker Compose and maintained the Azure DevOps CI/CD pipelines."
+      ],
+      "stack": ["C#", "ASP.NET", ".NET Core", "EF Core", "LINQ", "SQL Server", "Blazor", "xUnit", "Docker", "Azure DevOps", "Scrum"]
+    },
+    {
+      "id": "charcentric",
+      "role": "Software Engineer (TypeScript / Node.js, Python / FastAPI)",
+      "company": "CharCentric",
+      "location": "Dubai, UAE",
+      "workMode": "Remote",
+      "period": "10/2021 – 11/2024",
+      "emoji": "🌍",
+      "summary": "Backend work across three products: the DataX data platform, the 360u booking marketplace and the Jusoor startup/investor platform.",
+      "highlights": [
+        "DataX: built and maintained 50+ REST APIs with Python and FastAPI following Clean Architecture and SOLID; schema migrations with SQLAlchemy, Alembic and PostgreSQL.",
+        "DataX: raised release quality with 1500+ automated tests (pytest, separate Docker test environment) wired into GitHub Actions with a 60 % coverage gate.",
+        "360u: designed the data model for catalogs and bookings and the booking lifecycle with Stripe authorize-and-capture and wallet credits.",
+        "360u: integrated Stripe webhooks, AWS S3/SES, Twilio and OneSignal; auth with JWT, SuperTokens, Google OAuth and RBAC.",
+        "Jusoor: built the organisation microservice with NestJS, Prisma and SQL Server — REST APIs with filtering, pagination, JWT (RS256) and Swagger docs."
+      ],
+      "stack": ["Python", "FastAPI", "SQLAlchemy", "PostgreSQL", "pytest", "TypeScript", "Node.js", "NestJS", "Next.js", "Prisma", "Stripe", "AWS", "Docker", "GitHub Actions"]
+    }
+  ],
+  "projects": [
+    {
+      "id": "udm",
+      "name": "UDM — Universal Data Manager",
+      "tagline": "Low-code platform for business applications",
+      "context": "PureSolution GmbH",
+      "period": "12/2024 – 07/2026",
+      "role": "Software Developer",
+      "description": "Customers build their own business apps in the browser: data model, forms, rules and permissions. Typical users are transport companies and mid-sized firms whose shift swaps, incident reports and training deadlines used to live in Excel.",
+      "highlights": [
+        "Tree-based filter search replacing an array-based system (LINQ, OOP, xUnit).",
+        "Plug-in loader for customer DLLs via .NET Reflection and fixed interfaces.",
+        "Shift-planning library with 15+ constraints across multiple sites.",
+        "Docker / Docker Compose for 4 .NET apps, Azure DevOps CI/CD."
+      ],
+      "stack": ["C#", ".NET", "Blazor", "EF Core", "xUnit", "Docker", "Azure DevOps"],
+      "category": "dotnet",
+      "emoji": "🧱",
+      "accent": "sky",
+      "metrics": [
+        { "value": "15+", "label": "planning rules", "emoji": "📅" },
+        { "value": "4", "label": ".NET apps containerised", "emoji": "🐳" }
+      ]
+    },
+    {
+      "id": "datax",
+      "name": "DataX",
+      "tagline": "AI-powered data platform",
+      "context": "CharCentric",
+      "period": "10/2021 – 11/2024",
+      "role": "Core backend contributor",
+      "description": "Teams connect data, run ETL/ELT, expose it through APIs, build agentic workflows and show results in dashboards — on top of tenancy, auth, secrets and scheduling.",
+      "highlights": [
+        "50+ FastAPI endpoints split into infrastructure, use-case and controller layers.",
+        "Search, filtering (incl. NOT operator) and dynamic ordering on list endpoints.",
+        "API data reader that turns external JSON into validated Pydantic models at runtime.",
+        "Auth middleware, activity log for mutating requests, database triggers."
+      ],
+      "stack": ["Python", "FastAPI", "Pydantic", "SQLAlchemy", "Alembic", "PostgreSQL", "pytest", "GitHub Actions"],
+      "category": "python",
+      "emoji": "📊",
+      "accent": "mint",
+      "metrics": [
+        { "value": "50+", "label": "REST APIs", "emoji": "🔌" },
+        { "value": "1500+", "label": "tests", "emoji": "✅" },
+        { "value": "≥ 60 %", "label": "coverage gate", "emoji": "🎯" }
+      ]
+    },
+    {
+      "id": "360u",
+      "name": "360u",
+      "tagline": "Multi-sided booking platform for on-demand services",
+      "context": "CharCentric",
+      "period": "10/2021 – 11/2024",
+      "role": "Owner of the whole backend",
+      "description": "Customers book a provider and a worker for a time slot; operators manage catalog, promotions and bookings in a CMS; workers and customers use a Capacitor app. The hard part: keeping availability, payments, credits and notifications consistent.",
+      "highlights": [
+        "Booking lifecycle with conflict handling — overlapping assignments are rejected.",
+        "Stripe authorize-and-capture with signature-checked webhooks.",
+        "Wallet balance with credit transactions and referral credit.",
+        "Clean Architecture layers with Inversify dependency injection."
+      ],
+      "stack": ["TypeScript", "Next.js", "Prisma", "MySQL", "Stripe", "AWS", "Twilio", "Capacitor"],
+      "category": "typescript",
+      "emoji": "📅",
+      "accent": "coral"
+    },
+    {
+      "id": "jusoor",
+      "name": "Jusoor",
+      "tagline": "Organisation microservice for startups & investors",
+      "context": "CharCentric",
+      "period": "11/2021 – 01/2022",
+      "role": "Backend developer (NestJS)",
+      "description": "A platform connecting startups, companies and investors. I worked on the organisation microservice that exposes profiles, jobs, applications and investments as a REST API.",
+      "highlights": [
+        "CRUD endpoints with filtering and pagination (incl. total count).",
+        "Passport guards (JWT, RS256), custom validation pipes, correlation-ID middleware.",
+        "Mail service with Handlebars templates and .ics calendar invites.",
+        "Analytics endpoints with Prisma groupBy and SQL."
+      ],
+      "stack": ["TypeScript", "NestJS", "Prisma", "SQL Server", "Passport", "Swagger", "Docker"],
+      "category": "typescript",
+      "emoji": "🌉",
+      "accent": "grape"
+    },
+    {
+      "id": "progen",
+      "name": "ProGen",
+      "tagline": "AI for texts and documents — proof of concept",
+      "context": "CharCentric",
+      "period": "2021 – 2024",
+      "role": "Backend owner",
+      "description": "A proof of concept for AI-assisted content and document generation: Azure AD login, structured data storage and calls to AI services — enough to validate the product idea.",
+      "highlights": [
+        "Gathered requirements and designed the database for the PoC.",
+        "Implemented the REST APIs for the app's resources.",
+        "Integrated third-party AI services for content and documents.",
+        "Wired up Azure AD single sign-on."
+      ],
+      "stack": ["TypeScript", "Next.js", "Azure AD SSO", "REST"],
+      "category": "typescript",
+      "emoji": "✍️",
+      "accent": "sun"
+    },
+    {
+      "id": "dotnet-security",
+      "name": "DotNet-Security-Focused",
+      "tagline": "My OWASP Top 10 engineering lab",
+      "context": "Personal project",
+      "period": "06/2026 – 07/2026",
+      "role": "Everything 🙂",
+      "description": "A running ASP.NET Core API that implements OWASP Top 10 controls in code and proves them with tests — plus a pre-commit scanner that catches risky AI-generated snippets.",
+      "highlights": [
+        "JWT + RBAC, refresh-token rotation with reuse detection.",
+        "SQL injection, IDOR and input validation — unsafe vs. safe path side by side.",
+        "Rate limiting on login, security logging, security headers.",
+        "Guardrails library + CLI blocking weak crypto, BinaryFormatter and secrets on commit."
+      ],
+      "stack": [".NET 10", "ASP.NET Core", "EF Core", "Identity", "FluentValidation", "xUnit"],
+      "category": "dotnet",
+      "emoji": "🛡️",
+      "accent": "sky",
+      "link": "https://github.com/fadel-asideh/DotNet-Security-Focused",
+      "metrics": [
+        { "value": "12/12", "label": "tasks done", "emoji": "🏁" },
+        { "value": "50", "label": "passing tests", "emoji": "✅" }
+      ]
+    }
+  ],
+  "jokes": [
+    { "setup": "Why do programmers prefer dark mode?", "punchline": "Because light attracts bugs. 🐛 (Go on, try the moon button.)" },
+    { "setup": "How many programmers does it take to change a light bulb?", "punchline": "None. That's a hardware problem." },
+    { "setup": "Why did the developer go broke?", "punchline": "Because he used up all his cache." },
+    { "setup": "What's a SQL query's favourite pick-up line?", "punchline": "Can I JOIN you?" },
+    { "setup": "Why was the JavaScript developer sad?", "punchline": "Because he didn't Node how to Express himself." },
+    { "setup": "Why did the API break up with the client?", "punchline": "Too many requests and not enough responses." },
+    { "setup": "What did the unit test say to the code?", "punchline": "I'm not mad, I'm just… asserting myself." },
+    { "setup": "Why do Java developers wear glasses?", "punchline": "Because they can't C#." },
+    { "setup": "I told my Docker container a joke.", "punchline": "It didn't laugh — it was isolated." },
+    { "setup": "A SOLID developer walks into a bar.", "punchline": "Orders one drink. Single responsibility." }
+  ],
+  "compliments": [
+    "You have excellent taste in portfolios. 😎",
+    "Your code probably compiles on the first try. ✨",
+    "Hey, nice cursor movement! 🖱️",
+    "You just made Bugsy's day. 💛",
+    "Your merge conflicts resolve themselves. 🪄",
+    "Statistically, you're the coolest visitor today. 📈",
+    "Smile detected. System running perfectly. ✅",
+    "You'd be a great teammate. Just saying. 🤝"
+  ]
+}

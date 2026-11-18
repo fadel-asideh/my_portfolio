@@ -1,0 +1,50 @@
+<!-- CONTACT SECTION TEMPLATE (logic lives in contact.component.ts) -->
+<section id="contact" class="mx-auto max-w-4xl px-5 py-20">
+  <app-section-heading emoji="💌" [title]="'contact.title' | t" [subtitle]="'contact.subtitle' | t" />
+
+  <div appReveal class="sticker relative overflow-hidden p-8 text-center md:p-12">
+    <!-- decorative envelope peeking from the corner -->
+    <span class="absolute -top-3 -right-3 rotate-12 text-7xl opacity-20" aria-hidden="true">✉️</span>
+
+    <!-- E-mail as a big, selectable text -->
+    <p class="font-mono text-lg break-all select-all md:text-2xl">{{ config().email }}</p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <button type="button" class="btn bg-sun" (click)="copyEmail($event)">
+        <app-icon name="copy" class="size-4" />
+        {{ 'contact.copyEmail' | t }}
+      </button>
+
+      <a class="btn bg-mint" [href]="'mailto:' + config().email">
+        <app-icon name="mail" class="size-4" />
+        {{ 'contact.sendMail' | t }}
+      </a>
+
+      @if (config().cvUrl) {
+        <a class="btn bg-sky text-white!" [href]="config().cvUrl" download>
+          <app-icon name="download" class="size-4" />
+          {{ 'contact.downloadCv' | t }}
+        </a>
+      }
+    </div>
+
+    <!-- Social links (all except e-mail, which is above already) -->
+    <ul class="mt-8 flex justify-center gap-4">
+      @for (link of config().socialLinks; track link.url) {
+        @if (link.icon !== 'mail') {
+          <li>
+            <a
+              [href]="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="sticker sticker-hover flex items-center gap-2 px-4 py-2 font-display font-semibold"
+            >
+              <app-icon [name]="link.icon" class="size-5" />
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      }
+    </ul>
+  </div>
+</section>

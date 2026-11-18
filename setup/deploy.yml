@@ -1,0 +1,78 @@
+# ⚠️ MOVE THIS FILE TO: .github/workflows/deploy.yml  (GitHub only runs workflows from that folder)
+# =============================================================================
+# DEPLOY TO GITHUB PAGES
+# -----------------------------------------------------------------------------
+# Runs on every push to `main` (and manually via the "Run workflow" button).
+#   1. install dependencies
+#   2. run the unit tests  → a broken build never goes live
+#   3. build with a relative base href (works for ANY repository name)
+#   4. publish the result to GitHub Pages
+#
+# One-time setup in your repository:
+#   Settings → Pages → Build and deployment → Source: "GitHub Actions"
+# =============================================================================
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# The minimum permissions GitHub Pages deployment needs.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deployments at the same time.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests
+        run: npm run test:ci
+
+      - name: Build for GitHub Pages
+        run: npm run build:gh-pages
+
+      - name: Prepare the output folder
+        run: |
+          # .nojekyll → GitHub serves files as-is (no Jekyll processing)
+          touch dist/my_portfolio/browser/.nojekyll
+          # 404.html → unknown URLs show the portfolio instead of GitHub's 404
+          cp dist/my_portfolio/browser/index.html dist/my_portfolio/browser/404.html
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/my_portfolio/browser
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,101 @@
+<!--
+  BUGSY — drawn as inline SVG (200 × 200 units).
+  Layers from back to front: shadow · antenna · body · cheeks · eyes · mouth · zzz.
+  Only signals are read here; all logic lives in mascot.component.ts.
+-->
+<div class="relative flex flex-col items-center">
+  <!-- Speech bubble: invites a click, or shows that Bugsy is napping -->
+  <p class="sticker mb-3 animate-pop-in px-4 py-2 font-display text-sm font-medium" aria-hidden="true">
+    @if (mood() === 'sleeping') {
+      {{ 'mascot.sleeping' | t }}
+    } @else {
+      {{ 'mascot.hint' | t }}
+    }
+  </p>
+
+  <button
+    type="button"
+    class="bugsy cursor-pointer rounded-full"
+    [class.is-excited]="mood() === 'excited'"
+    [attr.aria-label]="'mascot.label' | t"
+    (click)="celebrate($event)"
+    (pointerenter)="onHover(true)"
+    (pointerleave)="onHover(false)"
+    (focus)="onHover(true)"
+    (blur)="onHover(false)"
+  >
+    <svg viewBox="0 0 200 200" class="size-56 drop-shadow-sm md:size-72" aria-hidden="true">
+      <!-- soft ground shadow, shrinks while Bugsy floats up -->
+      <ellipse class="bugsy-shadow" cx="100" cy="188" rx="48" ry="7" fill="currentColor" opacity="0.12" />
+
+      <g class="bugsy-body">
+        <!-- antenna with a glowing bulb -->
+        <path d="M100 48 Q96 28 108 16" fill="none" stroke="var(--line)" stroke-width="4" stroke-linecap="round" />
+        <circle class="bugsy-bulb" cx="109" cy="14" r="8" fill="var(--color-coral)" stroke="var(--line)" stroke-width="3" />
+
+        <!-- tiny feet -->
+        <ellipse cx="74" cy="172" rx="14" ry="7" fill="var(--color-sky)" stroke="var(--line)" stroke-width="3" />
+        <ellipse cx="126" cy="172" rx="14" ry="7" fill="var(--color-sky)" stroke="var(--line)" stroke-width="3" />
+
+        <!-- body: a slightly squished, friendly blob -->
+        <path
+          d="M100 44 C150 44 172 78 170 112 C168 150 140 170 100 170 C60 170 32 150 30 112 C28 78 50 44 100 44 Z"
+          fill="var(--color-sun)"
+          stroke="var(--line)"
+          stroke-width="4"
+        />
+        <!-- belly highlight -->
+        <ellipse cx="78" cy="70" rx="16" ry="8" fill="#fff" opacity="0.45" transform="rotate(-25 78 70)" />
+
+        <!-- rosy cheeks -->
+        <ellipse cx="58" cy="118" rx="11" ry="7" fill="var(--color-coral)" opacity="0.55" />
+        <ellipse cx="142" cy="118" rx="11" ry="7" fill="var(--color-coral)" opacity="0.55" />
+
+        <!-- eyes -->
+        @if (mood() === 'sleeping') {
+          <path d="M62 96 Q75 106 88 96" fill="none" stroke="var(--line)" stroke-width="4" stroke-linecap="round" />
+          <path d="M112 96 Q125 106 138 96" fill="none" stroke="var(--line)" stroke-width="4" stroke-linecap="round" />
+        } @else if (mood() === 'excited') {
+          <!-- happy "^ ^" eyes -->
+          <path d="M62 100 L75 88 L88 100" fill="none" stroke="var(--line)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+          <path d="M112 100 L125 88 L138 100" fill="none" stroke="var(--line)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        } @else {
+          <g class="bugsy-eyes">
+            <circle cx="75" cy="94" r="15" fill="#fff" stroke="var(--line)" stroke-width="3" />
+            <circle cx="125" cy="94" r="15" fill="#fff" stroke="var(--line)" stroke-width="3" />
+            <!-- pupils move with the pointer -->
+            <g [attr.transform]="'translate(' + pupil().x + ' ' + pupil().y + ')'">
+              <circle cx="75" cy="95" r="7" fill="#1d1b2f" />
+              <circle cx="125" cy="95" r="7" fill="#1d1b2f" />
+              <circle cx="78" cy="92" r="2.2" fill="#fff" />
+              <circle cx="128" cy="92" r="2.2" fill="#fff" />
+            </g>
+          </g>
+        }
+
+        <!-- mouth: shape depends on the mood -->
+        <path
+          [attr.d]="mouthPath()"
+          [attr.fill]="mouthFilled() ? '#1d1b2f' : 'none'"
+          stroke="#1d1b2f"
+          stroke-width="4"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        @if (mouthFilled()) {
+          <!-- a little tongue, because why not -->
+          <ellipse cx="100" [attr.cy]="mood() === 'excited' ? 140 : 134" rx="12" ry="6" fill="var(--color-coral)" />
+        }
+      </g>
+
+      <!-- zzz bubbles while sleeping -->
+      @if (mood() === 'sleeping') {
+        <g class="bugsy-zzz" font-family="Fredoka, sans-serif" font-weight="700" fill="var(--color-grape)">
+          <text x="150" y="52" font-size="18">z</text>
+          <text x="162" y="36" font-size="22">z</text>
+          <text x="176" y="18" font-size="26">Z</text>
+        </g>
+      }
+    </svg>
+  </button>
+</div>

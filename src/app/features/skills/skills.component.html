@@ -1,0 +1,24 @@
+<!-- SKILLS SECTION TEMPLATE (logic lives in skills.component.ts) -->
+<section id="skills" class="mx-auto max-w-6xl px-5 py-20">
+  <app-section-heading emoji="🧰" [title]="'skills.title' | t" [subtitle]="'skills.subtitle' | t" />
+
+  <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @for (group of groups(); track group.id; let i = $index) {
+      <li appReveal [revealDelay]="(i % 3) * 100" class="h-full">
+        <article class="sticker sticker-hover h-full overflow-hidden">
+          <!-- colored header strip -->
+          <header class="flex items-center gap-3 border-b-2 border-line px-5 py-3 text-[#1d1b2f]" [class]="accentBg[group.accent]">
+            <span class="text-2xl" aria-hidden="true">{{ group.emoji }}</span>
+            <h3 class="text-xl font-semibold">{{ group.title }}</h3>
+          </header>
+
+          <ul class="flex flex-wrap gap-2 p-5">
+            @for (skill of group.skills; track skill) {
+              <li class="chip transition-transform hover:animate-wiggle">{{ skill }}</li>
+            }
+          </ul>
+        </article>
+      </li>
+    }
+  </ul>
+</section>

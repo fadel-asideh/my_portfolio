@@ -1,0 +1,9 @@
+{
+  "email": "fadel_asideh@hotmail.com",
+  "cvUrl": "",
+  "socialLinks": [
+    { "icon": "github", "label": "GitHub", "url": "https://github.com/fadel-asideh" },
+    { "icon": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/in/fadel-asideh" },
+    { "icon": "mail", "label": "E-Mail", "url": "mailto:fadel_asideh@hotmail.com" }
+  ]
+}
